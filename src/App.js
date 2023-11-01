@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
 
-  const changeTextHandler = () => {
-    console.log('changé ! ');
+  // State
+  const[texte, setTexte] = useState('Ma zone texte par défaut');
+
+  //Fonctions
+  const changeTextHandler = (event) => {
+    setTexte(event.target.value)
   };
 
   return (
@@ -13,8 +17,8 @@ function App() {
 
         <div className='element'>
           <textarea 
-          value="Mon texte par défaut"
-          onChange={changeTextHandler}>
+          value= {texte}
+          onChange={(e) => changeTextHandler(e)}>
           </textarea>
         </div>
 
